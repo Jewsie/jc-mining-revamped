@@ -20,10 +20,12 @@ JC-Mining is a more advanced mining script created with capability for both RSG 
 # Dependencies 
 ***For RSG***
 - rsg-core
+- PolyZone
 
 ***For Vorp***
 - vorp-core
 - vorp_progressbar
+- PolyZone
 
 ***Discord Support***
 https://discord.gg/xvU7HxsENH
