@@ -5,10 +5,8 @@ Showcase:
 https://youtu.be/bixu5KhiE-4
 https://youtu.be/FLDydwk9LX0
 
-Discord: https://www.discord.gg/CZGDPcdSa7
-
 *** JC-Mining ***
-JC-Mining is a more advanced mining script created with capability for both RSG and VORP now too! It involves a very easy and well configurable config mine, including bunch of other features listed below, video showcases above, and as always discord for support too!
+JC-Mining is a more advanced mining script created with capability for both RSG and VORP now too! It involves a very easy and well configurable config mine, including bunch of other features listed below, video showcases above, and as always discord for support too below!
 
 ** Features **
 - Goldpanning
