@@ -1,7 +1,7 @@
 # jc-mining - Recreated
  A newly and better optimized mining system!
 
-# Showcase:
+# Showcase
 https://youtu.be/bixu5KhiE-4
 https://youtu.be/FLDydwk9LX0
 
