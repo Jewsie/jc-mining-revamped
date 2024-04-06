@@ -72,7 +72,8 @@ Wanna use the items I do? Make sure you have these in your items.lua for rsg-cor
 ```
 
 Items to add into database for VORP;
-```INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `desc`) VALUES 
+```
+INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `desc`) VALUES 
 ('diamondore', 'Diamond Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
 ('rubyore', 'Ruby Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
 ('emeraldore', 'Emerald Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
@@ -81,4 +82,5 @@ Items to add into database for VORP;
 ('ironore', 'Iron Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
 ('aluminum_ore', 'Aluminum Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
 ('copper_ore', 'Copper Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
-('rocksalt', 'Rocksalt', 30, 1, 'item_standard', 0, 1, 'Salt from a rock, can be used to caft with');```
+('rocksalt', 'Rocksalt', 30, 1, 'item_standard', 0, 1, 'Salt from a rock, can be used to caft with');
+```
