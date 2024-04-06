@@ -18,7 +18,12 @@ JC-Mining is a more advanced mining script created with capability for both RSG 
 - Hotspots for Goldpanning to get higher reward amount and chance!
 
 ** Dependencies **
+** For RSG **
 - rsg-core
+
+** For Vorp **
+- vorp-core
+- vorp_progressbar
 
 Discord Support
 https://discord.gg/xvU7HxsENH
