@@ -84,3 +84,4 @@ INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `des
 ('copper_ore', 'Copper Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
 ('rocksalt', 'Rocksalt', 30, 1, 'item_standard', 0, 1, 'Salt from a rock, can be used to caft with');
 ```
+Remember also to make pickaxe and rock usable by changing their value from 0 to 1 in items table in your database!
