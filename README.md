@@ -1,14 +1,14 @@
 # jc-mining - Recreated
  A newly and better optimized mining system!
 
-Showcase:
+# Showcase:
 https://youtu.be/bixu5KhiE-4
 https://youtu.be/FLDydwk9LX0
 
-*** JC-Mining ***
+# JC-Mining
 JC-Mining is a more advanced mining script created with capability for both RSG and VORP now too! It involves a very easy and well configurable config mine, including bunch of other features listed below, video showcases above, and as always discord for support too below!
 
-** Features **
+# Features
 - Goldpanning
 - Rock Washing
 - Several mine locations
@@ -17,18 +17,19 @@ JC-Mining is a more advanced mining script created with capability for both RSG 
 - Activate/Deactivate breakchance for pickaxe
 - Hotspots for Goldpanning to get higher reward amount and chance!
 
-** Dependencies **
-** For RSG **
+# Dependencies 
+***For RSG***
 - rsg-core
 
-** For Vorp **
+***For Vorp***
 - vorp-core
 - vorp_progressbar
 
-Discord Support
+***Discord Support***
 https://discord.gg/xvU7HxsENH
 
-Wanna use the items I do? Make sure you have these in your items.lua for rsg-core(VORP is below)
+# Adding Items
+***Wanna use the items I do? Make sure you have these in your items.lua for rsg-core(VORP is below)***
 ```-- Crafting aterials
     ['iron']      = {['name'] = 'iron',      ['label'] = 'Iron',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'iron.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
     ['aluminum']      = {['name'] = 'aluminum',      ['label'] = 'Aluminum',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'aluminum.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
@@ -76,7 +77,7 @@ Wanna use the items I do? Make sure you have these in your items.lua for rsg-cor
     ['goldpan']      = {['name'] = 'goldpan',      ['label'] = 'Goldpan',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'goldpan.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool to use for gold farming in rivers!'},
 ```
 
-Items to add into database for VORP;
+***VORP Items Adding***
 ```
 INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `desc`) VALUES 
 ('diamondore', 'Diamond Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
