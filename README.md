@@ -23,7 +23,7 @@ JC-Mining is the newest addiction to the Jack Creations scripts for the RedM gam
 Discord Support
 https://discord.gg/xvU7HxsENH
 
-Wanna use the items I do? Make sure you have these in your items.lua
+Wanna use the items I do? Make sure you have these in your items.lua for rsg-core(VORP is below)
 ```-- Crafting aterials
     ['iron']      = {['name'] = 'iron',      ['label'] = 'Iron',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'iron.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
     ['aluminum']      = {['name'] = 'aluminum',      ['label'] = 'Aluminum',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'aluminum.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
@@ -69,3 +69,15 @@ Wanna use the items I do? Make sure you have these in your items.lua
     -- Tools
     ['pickaxe']      = {['name'] = 'pickaxe',      ['label'] = 'Pickaxe',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'pickaxe.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool used to mine with!'},
     ['goldpan']      = {['name'] = 'goldpan',      ['label'] = 'Goldpan',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'goldpan.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool to use for gold farming in rivers!'},```
+
+Items to add into database for VORP;
+```INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `desc`) VALUES 
+('diamondore', 'Diamond Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('rubyore', 'Ruby Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('emeraldore', 'Emerald Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('silver_ore', 'Silver Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('gold_ore', 'Gold Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('ironore', 'Iron Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('aluminum_ore', 'Aluminum Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('copper_ore', 'Copper Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('rocksalt', 'Rocksalt', 30, 1, 'item_standard', 0, 1, 'Salt from a rock, can be used to caft with');```
