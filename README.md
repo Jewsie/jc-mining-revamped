@@ -6,7 +6,7 @@ https://youtu.be/bixu5KhiE-4
 https://youtu.be/FLDydwk9LX0
 
 *** JC-Mining ***
-JC-Mining is the newest addiction to the Jack Creations scripts for the RedM game, currently only made for RSG, but will be support for VORP soon aswell! This is my first script published for RedM after returning back to it, and it has more features and better optimized and created than the others I have had made. Don't worry about the green polyzones, you can change them at any time! Those were also for debug and visual effects for myself and for purpose of the video!
+JC-Mining is a more advanced mining script created with capability for both RSG and VORP now too! It involves a very easy and well configurable config mine, including bunch of other features listed below, video showcases above, and as always discord for support too below!
 
 ** Features **
 - Goldpanning
@@ -18,12 +18,17 @@ JC-Mining is the newest addiction to the Jack Creations scripts for the RedM gam
 - Hotspots for Goldpanning to get higher reward amount and chance!
 
 ** Dependencies **
+** For RSG **
 - rsg-core
+
+** For Vorp **
+- vorp-core
+- vorp_progressbar
 
 Discord Support
 https://discord.gg/xvU7HxsENH
 
-Wanna use the items I do? Make sure you have these in your items.lua
+Wanna use the items I do? Make sure you have these in your items.lua for rsg-core(VORP is below)
 ```-- Crafting aterials
     ['iron']      = {['name'] = 'iron',      ['label'] = 'Iron',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'iron.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
     ['aluminum']      = {['name'] = 'aluminum',      ['label'] = 'Aluminum',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'aluminum.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A material used to craft with!'},
@@ -68,4 +73,20 @@ Wanna use the items I do? Make sure you have these in your items.lua
     
     -- Tools
     ['pickaxe']      = {['name'] = 'pickaxe',      ['label'] = 'Pickaxe',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'pickaxe.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool used to mine with!'},
-    ['goldpan']      = {['name'] = 'goldpan',      ['label'] = 'Goldpan',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'goldpan.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool to use for gold farming in rivers!'},```
+    ['goldpan']      = {['name'] = 'goldpan',      ['label'] = 'Goldpan',       ['weight'] = 1, ['type'] = 'item', ['image'] = 'goldpan.png',      ['unique'] = true, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['level'] = 0, ['description'] = 'A tool to use for gold farming in rivers!'},
+```
+
+Items to add into database for VORP;
+```
+INSERT INTO items (item, label, `limit`, can_remove, type, usable, groupId, `desc`) VALUES 
+('diamondore', 'Diamond Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('rubyore', 'Ruby Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('emeraldore', 'Emerald Ore', 30, 1, 'item_standard', 0, 1, 'A beautiful gem'),
+('silver_ore', 'Silver Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('gold_ore', 'Gold Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('ironore', 'Iron Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('aluminum_ore', 'Aluminum Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('copper_ore', 'Copper Ore', 30, 1, 'item_standard', 0, 1, 'An ore that can be used to smelt down'),
+('rocksalt', 'Rocksalt', 30, 1, 'item_standard', 0, 1, 'Salt from a rock, can be used to caft with');
+```
+Remember also to make pickaxe and rock usable by changing their value from 0 to 1 in items table in your database!

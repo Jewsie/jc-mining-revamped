@@ -3,7 +3,6 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 game 'rdr3'
 
 shared_scripts {
-    '@ox_lib/init.lua',
     'config.lua',
 }
 
@@ -18,7 +17,8 @@ client_scripts {
 	'@PolyZone/EntityZone.lua',
 	'@PolyZone/CircleZone.lua',
 	'@PolyZone/ComboZone.lua',
-    'client/main.lua'
+    'client/rsg_main.lua',
+    'client/vorp_main.lua'
 }
 
 --ui_page 'html/index.html'

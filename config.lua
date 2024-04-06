@@ -1,13 +1,18 @@
 Config = Config or {}
 
+Config.Framework = 'VORP' -- RSG or VORP
+
 Config.CommonChance = 80 -- Percentage of chance to get common items
 Config.GoldChance = 65 -- Percentage of chance to get Gold items
 Config.RareChance = 50 -- Percentage of chance to get Rare items
 Config.GemsChance = 35 -- Percentage of chance to get Gems items
 
-Config.Pickaxe = 'pickaxe'
+Config.Pickaxe = 'pickaxe' -- Pickaxe item
 Config.PickaxeBreak = true -- Whether the pickaxe can break or not!
 Config.BreakChance = 10 -- How high percentage chance there is to break the pickaxe
+
+Config.Goldpan = 'goldpan' -- Goldpan item
+Config.GoldpanItem = 'goldflakes' -- The item the player will get when goldpanning
 
 Config.CommonItems = 'rock' -- The ordinary item you get from common mines!
 Config.GoldItems = 'gold_ore' -- Ordinary items you get from gold mines!
