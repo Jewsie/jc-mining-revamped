@@ -5,8 +5,10 @@ Showcase:
 https://youtu.be/bixu5KhiE-4
 https://youtu.be/FLDydwk9LX0
 
+Discord: https://www.discord.gg/CZGDPcdSa7
+
 *** JC-Mining ***
-JC-Mining is the newest addiction to the Jack Creations scripts for the RedM game, currently only made for RSG, but will be support for VORP soon aswell! This is my first script published for RedM after returning back to it, and it has more features and better optimized and created than the others I have had made. Don't worry about the green polyzones, you can change them at any time! Those were also for debug and visual effects for myself and for purpose of the video!
+JC-Mining is a more advanced mining script created with capability for both RSG and VORP now too! It involves a very easy and well configurable config mine, including bunch of other features listed below, video showcases above, and as always discord for support too!
 
 ** Features **
 - Goldpanning
