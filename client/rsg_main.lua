@@ -42,10 +42,8 @@ if Config.Framework == 'RSG' then
     
             mineZone:onPlayerInOut(function(onInsideOut)
                 if onInsideOut then
-                    print('Inside')
                     mineType = mines.type
                 else
-                    print('Outside')
                     mineType = nil
                 end
             end)
