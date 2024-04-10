@@ -135,14 +135,14 @@ if Config.Framework == 'VORP' then
                     DeleteObject(goldpan)
                     goldpan = nil
                     if inHotZone then
-                        if math.random(1, 100) >= 50 then
+                        if math.random(1, 100) >= Config.HotspotChance then
                             local amount = math.random(2, 8)
                             TriggerServerEvent('jc-mining:server:giveFlakesVorp', amount)
                         else
                             VORPcore.NotifyCenter('You didn\'t find anything!', 3000)
                         end
                     else
-                        if math.random(1, 100) >= 15 then
+                        if math.random(1, 100) >= Config.GoldFlakeChance then
                             local amount = math.random(1, 3)
                             TriggerServerEvent('jc-mining:server:giveFlakesVorp', amount)
                         else
