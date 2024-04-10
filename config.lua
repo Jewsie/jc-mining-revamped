@@ -7,6 +7,9 @@ Config.GoldChance = 65 -- Percentage of chance to get Gold items
 Config.RareChance = 50 -- Percentage of chance to get Rare items
 Config.GemsChance = 35 -- Percentage of chance to get Gems items
 
+Config.GoldFlakeChance = 15 -- How high percentage chance you are to goldpan gold at a non hotspot
+Config.HotspotChance = 50 -- How high a chance to goldpan gold at a hotspot zone
+
 Config.Pickaxe = 'pickaxe' -- Pickaxe item
 Config.PickaxeBreak = true -- Whether the pickaxe can break or not!
 Config.BreakChance = 10 -- How high percentage chance there is to break the pickaxe
