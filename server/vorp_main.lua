@@ -76,4 +76,10 @@ if Config.Framework == 'VORP' then
         local src = source
         exports['vorp_inventory']:subItem(src, Config.Pickaxe, 1)
     end)
+
+    RegisterNetEvent('jc-mining:server:giveFlakesVorp', function(amount)
+        local src = source
+        local item = Config.GoldpanItem
+        exports['vorp_inventory']:addItem(src, item, amount)
+    end)
 end

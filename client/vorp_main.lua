@@ -98,7 +98,8 @@ if Config.Framework == 'VORP' then
             local progressbar = exports['vorp_progressbar']:initiate()
             local x,y,z =  table.unpack(GetEntityCoords(PlayerPedId()))
             local current_district = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
-            if current_district then
+            local currentWater = Citizen.InvokeNative(0x5BA7A68A346A5A91, x, y, z)
+            if current_district or currentWater then
                 if not IsEntityInWater(PlayerPedId()) then VORPcore.NotifyCenter('You\'re not in any river!', 3000) return end
                 RequestAnimDict('script_rc@cldn@ig@rsc2_ig1_questionshopkeeper')
                 RequestAnimDict('script_re@gold_panner@gold_success')
