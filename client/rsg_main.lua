@@ -42,8 +42,10 @@ if Config.Framework == 'RSG' then
     
             mineZone:onPlayerInOut(function(onInsideOut)
                 if onInsideOut then
+                    print('Inside')
                     mineType = mines.type
                 else
+                    print('Outside')
                     mineType = nil
                 end
             end)
@@ -137,14 +139,14 @@ if Config.Framework == 'RSG' then
                         DeleteObject(goldpan)
                         goldpan = nil
                         if inHotZone then
-                            if math.random(1, 100) >= Config.HotspotChance then
+                            if math.random(1, 100) >= 50 then
                                 local amount = math.random(2, 8)
                                 TriggerServerEvent('jc-mining:server:giveFlakes', amount)
                             else
                                 RSGCore.Functions.Notify('You didn\'t find anything!', 'error', 3000)
                             end
                         else
-                            if math.random(1, 100) >= Config.GoldFlakeChance then
+                            if math.random(1, 100) >= 15 then
                                 local amount = math.random(1, 3)
                                 TriggerServerEvent('jc-mining:server:giveFlakes', amount)
                             else

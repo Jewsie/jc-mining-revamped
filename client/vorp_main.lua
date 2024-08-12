@@ -42,8 +42,10 @@ if Config.Framework == 'VORP' then
     
             mineZone:onPlayerInOut(function(onInsideOut)
                 if onInsideOut then
+                    print('Inside')
                     mineType = mines.type
                 else
+                    print('Outside')
                     mineType = nil
                 end
             end)
@@ -83,6 +85,7 @@ if Config.Framework == 'VORP' then
                 end
             else
                 VORPcore.NotifyCenter('You\'re not inside a mine!', 3000)
+                isWorking = false
             end
         else
             VORPcore.NotifyCenter('You\'re already doing smt!', 3000)
@@ -133,14 +136,14 @@ if Config.Framework == 'VORP' then
                     DeleteObject(goldpan)
                     goldpan = nil
                     if inHotZone then
-                        if math.random(1, 100) >= Config.HotspotChance then
+                        if math.random(1, 100) >= 50 then
                             local amount = math.random(2, 8)
                             TriggerServerEvent('jc-mining:server:giveFlakesVorp', amount)
                         else
                             VORPcore.NotifyCenter('You didn\'t find anything!', 3000)
                         end
                     else
-                        if math.random(1, 100) >= Config.GoldFlakeChance then
+                        if math.random(1, 100) >= 15 then
                             local amount = math.random(1, 3)
                             TriggerServerEvent('jc-mining:server:giveFlakesVorp', amount)
                         else
@@ -150,6 +153,7 @@ if Config.Framework == 'VORP' then
                 end, 'linear')
             else
                 VORPcore.NotifyCenter('You\'re not at any river!', 3000)
+                isWorking = false
             end
         else
             VORPcore.NotifyCenter('You\'re already doing smt!', 3000)
@@ -176,6 +180,7 @@ if Config.Framework == 'VORP' then
                 end, 'linear')
             else
                 VORPcore.NotifyCenter('You\'re not at any river!', 3000)
+                isWorking = false
             end
         else
             VORPcore.NotifyCenter('You\'re already doing smt!', 3000)
