@@ -109,52 +109,58 @@ if Config.Framework == 'RSG' then
                     Wait(10)
                 end 
                 TaskPlayAnim(PlayerPedId(), 'script_rc@cldn@ig@rsc2_ig1_questionshopkeeper', "inspectfloor_player", 0.5, 8.0, -1, 1, 0, false, false, false)
-                RSGCore.Functions.Progressbar('gold_panning', 'Panning for Gold', 5000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = true,
-                    disableMouse = false,
-                    disableCombat = true
-                    }, {}, {}, {}, function()
-                        ClearPedTasks(PlayerPedId())
-                        isWorking = false
-                        Wait(500)
-                        if not DoesEntityExist(goldpan) then
-                            local coords = GetEntityCoords(PlayerPedId())
-                            local model = GetHashKey("P_CS_MININGPAN01X")
-                            while not HasModelLoaded(model) do
-                                RequestModel(model)
-                                Wait(1)
-                            end
-                            goldpan = CreateObject(model, coords.x+0.30, coords.y+0.10,coords.z, true, false, false)
-                            SetEntityVisible(goldpan, true)
-                            SetEntityAlpha(goldpan, 255, false)
-                            Citizen.InvokeNative(0x283978A15512B2FE, goldpan, true)   
-                            local boneIndex = GetEntityBoneIndexByName(PlayerPedId(), "SKEL_R_HAND")
-                            AttachEntityToEntity(goldpan, PlayerPedId(), boneIndex, 0.2, 0.0, -0.20, -100.0, -50.0, 0.0, false, false, false, true, 2, true)
-                            SetModelAsNoLongerNeeded(model)
+                if lib.progressBar({
+                    duration = 5000,
+                    position = 'bottom',
+                    useWhileDead = false,
+                    canCancel = false,
+                    disable = {
+                        move = true,
+                        mouse = false,
+                        combat = true,
+                        car = true
+                    },
+                    label = 'Panning for Gold',
+                }) then 
+                    ClearPedTasks(PlayerPedId())
+                    isWorking = false
+                    Wait(500)
+                    if not DoesEntityExist(goldpan) then
+                        local coords = GetEntityCoords(PlayerPedId())
+                        local model = GetHashKey("P_CS_MININGPAN01X")
+                        while not HasModelLoaded(model) do
+                            RequestModel(model)
+                            Wait(1)
                         end
-                        TaskPlayAnim(PlayerPedId(), 'script_re@gold_panner@gold_success', "SEARCH02", 1.0, 8.0, -1, 1, 0, false, false, false)
-                        Wait(5000)
-                        ClearPedTasks(PlayerPedId())
-                        DeleteObject(goldpan)
-                        goldpan = nil
-                        if inHotZone then
-                            if math.random(1, 100) >= 50 then
-                                local amount = math.random(2, 8)
-                                TriggerServerEvent('jc-mining:server:giveFlakes', amount)
-                            else
-                                lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
-                            end
+                        goldpan = CreateObject(model, coords.x+0.30, coords.y+0.10,coords.z, true, false, false)
+                        SetEntityVisible(goldpan, true)
+                        SetEntityAlpha(goldpan, 255, false)
+                        Citizen.InvokeNative(0x283978A15512B2FE, goldpan, true)   
+                        local boneIndex = GetEntityBoneIndexByName(PlayerPedId(), "SKEL_R_HAND")
+                        AttachEntityToEntity(goldpan, PlayerPedId(), boneIndex, 0.2, 0.0, -0.20, -100.0, -50.0, 0.0, false, false, false, true, 2, true)
+                        SetModelAsNoLongerNeeded(model)
+                    end
+                    TaskPlayAnim(PlayerPedId(), 'script_re@gold_panner@gold_success', "SEARCH02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                    Wait(5000)
+                    ClearPedTasks(PlayerPedId())
+                    DeleteObject(goldpan)
+                    goldpan = nil
+                    if inHotZone then
+                        if math.random(1, 100) >= 50 then
+                            local amount = math.random(2, 8)
+                            TriggerServerEvent('jc-mining:server:giveFlakes', amount)
                         else
-                            if math.random(1, 100) >= 15 then
-                                local amount = math.random(1, 3)
-                                TriggerServerEvent('jc-mining:server:giveFlakes', amount)
-                            else
-                                lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
-                            end
+                            lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
                         end
-                    end, function()
-                end)
+                    else
+                        if math.random(1, 100) >= 15 then
+                            local amount = math.random(1, 3)
+                            TriggerServerEvent('jc-mining:server:giveFlakes', amount)
+                        else
+                            lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
+                        end
+                    end
+                end
             else
                 lib.notify({ title = 'You\'re not at any river!', type = 'error', duration = 3000 })
             end
