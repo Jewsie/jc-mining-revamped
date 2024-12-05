@@ -37,7 +37,7 @@ if Config.Framework == 'RSG' then
                 name = mines.id,
                 minZ = mines.minZ,
                 maxZ = mines.maxZ,
-                debugPoly = true,
+                debugPoly = false,
             })
     
             mineZone:onPlayerInOut(function(onInsideOut)
