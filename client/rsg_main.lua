@@ -37,7 +37,7 @@ if Config.Framework == 'RSG' then
                 name = mines.id,
                 minZ = mines.minZ,
                 maxZ = mines.maxZ,
-                debugPoly = false,
+                debugPoly = true,
             })
     
             mineZone:onPlayerInOut(function(onInsideOut)
@@ -80,14 +80,14 @@ if Config.Framework == 'RSG' then
                 if Config.PickaxeBreak then
                     if chance <= Config.BreakChance then
                         TriggerServerEvent('jc-mining:server:removepickaxe')
-                        RSGCore.Functions.Notify('You destroyed your pickaxe!', 'error', 3000)
+                        lib.notify({ title = 'You destroyed your pickaxe!', type = 'error', duration = 3000 })
                     end
                 end
             else
-                RSGCore.Functions.Notify('You\'re already doing something!', 'error', 3000)
+                lib.notify({ title = 'You\'re already doing something!', type = 'error', duration = 3000 })
             end
         else
-            RSGCore.Functions.Notify('You\'re not inside a mine!', 'error', 3000)
+            lib.notify({ title = 'You\'re not inside a mine!', type = 'error', duration = 3000 })
         end
     end)
     
@@ -143,23 +143,23 @@ if Config.Framework == 'RSG' then
                                 local amount = math.random(2, 8)
                                 TriggerServerEvent('jc-mining:server:giveFlakes', amount)
                             else
-                                RSGCore.Functions.Notify('You didn\'t find anything!', 'error', 3000)
+                                lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
                             end
                         else
                             if math.random(1, 100) >= 15 then
                                 local amount = math.random(1, 3)
                                 TriggerServerEvent('jc-mining:server:giveFlakes', amount)
                             else
-                                RSGCore.Functions.Notify('You didn\'t find anything!', 'error', 3000)
+                                lib.notify({ title = 'You didn\'t find anything!', type = 'error', duration = 3000 })
                             end
                         end
                     end, function()
                 end)
             else
-                RSGCore.Functions.Notify('You\'re not at any river!', 'error', 3000)
+                lib.notify({ title = 'You\'re not at any river!', type = 'error', duration = 3000 })
             end
         else
-            RSGCore.Functions.Notify('You\'re already doing something!', 'error', 3000)
+            lib.notify({ title = 'You\'re already doing something!', type = 'error', duration = 3000 })
         end
     end)
     
@@ -169,28 +169,37 @@ if Config.Framework == 'RSG' then
             local x,y,z =  table.unpack(GetEntityCoords(PlayerPedId()))
             local current_district = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
             if current_district then
-                if not IsEntityInWater(PlayerPedId()) then RSGCore.Functions.Notify('You\'re not in any river!', 'error', 3000) return end
-                RequestAnimDict('script_rc@cldn@ig@rsc2_ig1_questionshopkeeper')
-                while not HasAnimDictLoaded('script_rc@cldn@ig@rsc2_ig1_questionshopkeeper') do
-                    Wait(10)
+                if not IsEntityInWater(PlayerPedId()) then 
+                    lib.notify({ title = 'You\'re not in any river!', type = 'error', duration = 3000 })
+                    working = false;
+                    return 
+                end         
+                if lib.progressBar({
+                    duration = 5000,
+                    position = 'bottom',
+                    useWhileDead = false,
+                    canCancel = false,
+                    disable = {
+                        move = true,
+                        mouse = false,
+                        combat = true,
+                        car = true
+                    },
+                    anim = {
+                        dict = 'script_rc@cldn@ig@rsc2_ig1_questionshopkeeper',
+                        clip = 'inspectfloor_player'
+                    },
+                    label = 'Washing Rocks',
+                }) then 
+                    ClearPedTasks(PlayerPedId())
+                    TriggerServerEvent('jc-mining:server:washStones')
+                    isWorking = false
                 end
-                TaskPlayAnim(PlayerPedId(), 'script_rc@cldn@ig@rsc2_ig1_questionshopkeeper', "inspectfloor_player", 0.5, 8.0, -1, 1, 0, false, false, false)
-                RSGCore.Functions.Progressbar('washing_stone', 'Washing Rocks', 5000, false, true, {
-                    disableMovement = true,
-                    disableCarMovement = true,
-                    disableMouse = false,
-                    disableCombat = true
-                    }, {}, {}, {}, function()
-                        ClearPedTasks(PlayerPedId())
-                        TriggerServerEvent('jc-mining:server:washStones')
-                        isWorking = false
-                    end, function()
-                end)
             else
-                RSGCore.Functions.Notify('You\'re not at any river!', 'error', 3000)
+                lib.notify({ title = 'You\'re not at any river!', type = 'error', duration = 3000 })
             end
         else
-            RSGCore.Functions.Notify('You\'re already doing something!', 'error', 3000)
+            lib.notify({ title = 'You\'re already doing something!', type = 'error', duration = 3000 })
         end
     end)
 end

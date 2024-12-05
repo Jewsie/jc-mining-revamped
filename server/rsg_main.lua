@@ -31,16 +31,18 @@ if Config.Framework == 'RSG' then
         local Player = RSGCore.Functions.GetPlayer(src)
         local item = Config.WashingItems[math.random(1, #Config.WashingItems)]
         local chance = math.random(1, 100)
+
+        Player.Functions.RemoveItem(Config.CommonItems, 1)
+        TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'remove')
     
         if chance <= 15 then
-            Player.Functions.AddItem(Config.GoldItems, amount)
-            riggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[Config.GoldItems], 'add')
+            Player.Functions.AddItem(Config.GoldItems, 1)
+            TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[Config.GoldItems], 'add')
             return
         end
     
         Player.Functions.AddItem(item, 1)
-        Player.Functions.RemoveItem('rock', 1)
-        TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'add')
+        TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'add')     
     end)
     
     RegisterNetEvent('jc-mining:server:giveitems', function(mineType)
@@ -53,7 +55,7 @@ if Config.Framework == 'RSG' then
                 Player.Functions.AddItem(Config.CommonItems, math.random(2, 6))
                 TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[Config.CommonItems], 'add')
             else
-                RSGCore.Functions.Notify(src, 'You didn\'t get anything!', 'error', 3000)
+                TriggerClientEvent('ox_lib:notify', src, {title = 'You didn\'t get anything!', type = 'error', duration = 3000 })
             end
         elseif mineType == 'rare' then
             if chance <= Config.RareChance then
@@ -61,14 +63,14 @@ if Config.Framework == 'RSG' then
                 Player.Functions.AddItem(item, math.random(1, 3))
                 TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'add')
             else
-                RSGCore.Functions.Notify(src, 'You didn\'t get anything!', 'error', 3000)
+                TriggerClientEvent('ox_lib:notify', src, {title = 'You didn\'t get anything!', type = 'error', duration = 3000 })
             end
         elseif mineType == 'gems' then
             if chance <= Config.GemsChance then
                 local item = Config.GemItems[math.random(1, #Config.GemItems)]
                 Player.Functions.AddItem(item, math.random(1, 3))
             else
-                RSGCore.Functions.Notify(src, 'You didn\'t get anything!', 'error', 3000)
+                TriggerClientEvent('ox_lib:notify', src, {title = 'You didn\'t get anything!', type = 'error', duration = 3000 })
             end
             TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[item], 'add')
         elseif mineType == 'gold' then
@@ -76,7 +78,7 @@ if Config.Framework == 'RSG' then
                 Player.Functions.AddItem(Config.GoldItems, math.random(1, 5))
                 TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[Config.GoldItems], 'add')
             else
-                RSGCore.Functions.Notify(src, 'You didn\'t get anything!', 'error', 3000)
+                TriggerClientEvent('ox_lib:notify', src, {title = 'You didn\'t get anything!', type = 'error', duration = 3000 })
             end
         end
     end)
