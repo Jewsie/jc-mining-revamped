@@ -31,7 +31,7 @@ JC-Mining is a more advanced mining script created with capability for both RSG 
 - PolyZone
 
 # Discord Support
-https://discord.gg/xvU7HxsENH
+[https://discord.gg/xvU7HxsENH](https://discord.gg/uFVYG6UJaM)
 
 # Adding Items
 Wanna use the items I do? Make sure you have these in your items.lua for rsg-core(VORP is below)
